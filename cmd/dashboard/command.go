@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/c-bata/goptuna/dashboard"
-	"github.com/c-bata/goptuna/internal/sqlalchemy"
-	"github.com/c-bata/goptuna/rdb.v2"
+	"github.com/red-serenity/goptuna/dashboard"
+	"github.com/red-serenity/goptuna/internal/sqlalchemy"
+	"github.com/red-serenity/goptuna/rdb.v2"
 	"github.com/spf13/cobra"
 )
 

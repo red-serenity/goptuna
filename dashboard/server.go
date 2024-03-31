@@ -9,8 +9,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/c-bata/goptuna"
 	"github.com/gorilla/mux"
+	"github.com/red-serenity/goptuna"
 )
 
 var (

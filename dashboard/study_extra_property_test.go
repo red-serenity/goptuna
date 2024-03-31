@@ -5,8 +5,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/dashboard"
+	"github.com/red-serenity/goptuna"
+	"github.com/red-serenity/goptuna/dashboard"
 )
 
 func TestCachedExtraStudyProperty_UnionUserAttrs(t *testing.T) {

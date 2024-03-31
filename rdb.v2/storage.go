@@ -8,8 +8,8 @@ import (
 
 	"gorm.io/gorm/clause"
 
-	"github.com/c-bata/goptuna"
 	"github.com/google/uuid"
+	"github.com/red-serenity/goptuna"
 	"gorm.io/gorm"
 )
 

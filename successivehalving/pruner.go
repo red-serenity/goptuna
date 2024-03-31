@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/c-bata/goptuna"
+	"github.com/red-serenity/goptuna"
 )
 
 var errRungNotFound = errors.New("rung not found")

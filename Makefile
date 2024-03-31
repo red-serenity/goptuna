@@ -36,7 +36,7 @@ cover:  ## Run the tests.
 
 .PHONY: godoc
 godoc: ## Run godoc http server
-	@echo "Please open http://localhost:6060/pkg/github.com/c-bata/goptuna/"
+	@echo "Please open http://localhost:6060/pkg/github.com/red-serenity/goptuna/"
 	$(GODOC) -http=localhost:6060
 
 .PHONY: generate

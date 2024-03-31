@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/rdb.v2"
+	"github.com/red-serenity/goptuna"
+	"github.com/red-serenity/goptuna/rdb.v2"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

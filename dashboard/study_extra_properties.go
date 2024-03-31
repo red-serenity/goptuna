@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/c-bata/goptuna"
+	"github.com/red-serenity/goptuna"
 )
 
 type CachedExtraStudyProperty struct {

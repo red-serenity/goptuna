@@ -4,8 +4,8 @@ import (
 	"log"
 	"math"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/tpe"
+	"github.com/red-serenity/goptuna"
+	"github.com/red-serenity/goptuna/tpe"
 )
 
 func objective(trial goptuna.Trial) (float64, error) {

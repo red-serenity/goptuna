@@ -1,4 +1,4 @@
-module github.com/c-bata/goptuna
+module github.com/red-serenity/goptuna
 
 go 1.21
 
@@ -22,7 +22,6 @@ require (
 	github.com/jackc/pgx/v5 v5.3.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
-	github.com/lib/pq v1.3.0 // indirect
 	github.com/mattn/go-sqlite3 v1.14.17 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	golang.org/x/crypto v0.8.0 // indirect

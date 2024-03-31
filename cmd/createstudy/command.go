@@ -5,9 +5,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/internal/sqlalchemy"
-	"github.com/c-bata/goptuna/rdb.v2"
+	"github.com/red-serenity/goptuna"
+	"github.com/red-serenity/goptuna/internal/sqlalchemy"
+	"github.com/red-serenity/goptuna/rdb.v2"
 	"github.com/spf13/cobra"
 )
 

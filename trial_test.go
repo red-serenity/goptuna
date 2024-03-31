@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/c-bata/goptuna"
+	"github.com/red-serenity/goptuna"
 )
 
 func TestTrial_Suggest(t *testing.T) {

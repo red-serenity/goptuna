@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/c-bata/goptuna/tpe"
+	"github.com/red-serenity/goptuna/tpe"
 )
 
 func TestNewParzenEstimatorShapeCheck(t *testing.T) {

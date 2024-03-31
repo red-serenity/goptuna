@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/cmaes"
-	"github.com/c-bata/goptuna/tpe"
+	"github.com/red-serenity/goptuna"
+	"github.com/red-serenity/goptuna/cmaes"
+	"github.com/red-serenity/goptuna/tpe"
 	kurobako "github.com/sile/kurobako-go"
 	"github.com/sile/kurobako-go/goptuna/solver"
 )

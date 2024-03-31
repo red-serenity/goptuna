@@ -7,7 +7,7 @@ import (
 	"math/rand"
 	"sort"
 
-	"github.com/c-bata/goptuna"
+	"github.com/red-serenity/goptuna"
 	"gonum.org/v1/gonum/floats"
 	"gonum.org/v1/gonum/mat"
 )

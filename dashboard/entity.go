@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/c-bata/goptuna"
+	"github.com/red-serenity/goptuna"
 )
 
 type TrialParam struct {
