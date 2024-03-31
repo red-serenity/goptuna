@@ -46,6 +46,7 @@ type Storage interface {
 	GetTrialParams(trialID int) (map[string]interface{}, error)
 	GetTrialUserAttrs(trialID int) (map[string]string, error)
 	GetTrialSystemAttrs(trialID int) (map[string]string, error)
+	DeletePrunedTrials(studyID int, latest int) error
 }
 
 var _ Storage = &InMemoryStorage{}
@@ -591,4 +592,26 @@ func (s *InMemoryStorage) GetTrial(trialID int) (FrozenTrial, error) {
 
 func (s *InMemoryStorage) validateTrialID(trialID int) bool {
 	return trialID >= 0 && trialID < len(s.trials)
+}
+
+// DeletePrunedTrials delete all pruned trials except latest row
+func (s *InMemoryStorage) DeletePrunedTrials(studyID int, latest int) error {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	trials := make([]FrozenTrial, 0)
+	for i := range s.trials {
+		if i == len(s.trials)-1 {
+			trials = append(trials, s.trials[i])
+			break
+		}
+		if s.trials[i].State == TrialStatePruned {
+			continue
+		}
+
+		trials = append(trials, s.trials[i])
+	}
+	s.trials = trials
+
+	return nil
 }

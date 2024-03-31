@@ -569,3 +569,24 @@ func (s *BlackHoleStorage) updateBestTrial(trial FrozenTrial) {
 		return
 	}
 }
+
+// DeletePrunedTrials delete all pruned trials except latest row
+func (s *BlackHoleStorage) DeletePrunedTrials(studyID int, latest int) error {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	trials := make([]FrozenTrial, 0)
+	for i := 0; i < len(s.trials); i++ {
+		if i == len(s.trials)-1 {
+			trials = append(trials, s.trials[i])
+			break
+		}
+		if s.trials[i].State == TrialStatePruned {
+			continue
+		}
+		trials = append(trials, s.trials[i])
+	}
+	s.trials = trials
+	return nil
+
+}
