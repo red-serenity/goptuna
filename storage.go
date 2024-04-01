@@ -601,10 +601,15 @@ func (s *InMemoryStorage) DeletePrunedTrials(studyID int, latest int) error {
 
 	trials := make([]FrozenTrial, 0)
 	for i := range s.trials {
+		if s.trials[i].StudyID != studyID {
+			continue
+		}
+
 		if i == len(s.trials)-1 {
 			trials = append(trials, s.trials[i])
 			break
 		}
+
 		if s.trials[i].State == TrialStatePruned {
 			continue
 		}

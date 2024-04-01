@@ -577,6 +577,10 @@ func (s *BlackHoleStorage) DeletePrunedTrials(studyID int, latest int) error {
 
 	trials := make([]FrozenTrial, 0)
 	for i := 0; i < len(s.trials); i++ {
+		if s.trials[i].StudyID != studyID {
+			continue
+		}
+
 		if i == len(s.trials)-1 {
 			trials = append(trials, s.trials[i])
 			break
