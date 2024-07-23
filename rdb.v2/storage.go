@@ -812,3 +812,7 @@ func (s *Storage) DeletePrunedTrials(studyID int, latest int) error {
 		Where("state = ?", trialStatePruned).
 		Where("trial_id != ?", latest).Delete(&trialModel{}).Error
 }
+
+func (s *Storage) Close() error {
+	return nil
+}

@@ -594,3 +594,7 @@ func (s *BlackHoleStorage) DeletePrunedTrials(studyID int, latest int) error {
 	return nil
 
 }
+
+func (s *BlackHoleStorage) Close() error {
+	return nil
+}

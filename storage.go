@@ -47,6 +47,8 @@ type Storage interface {
 	GetTrialUserAttrs(trialID int) (map[string]string, error)
 	GetTrialSystemAttrs(trialID int) (map[string]string, error)
 	DeletePrunedTrials(studyID int, latest int) error
+
+	Close() error
 }
 
 var _ Storage = &InMemoryStorage{}
@@ -618,5 +620,9 @@ func (s *InMemoryStorage) DeletePrunedTrials(studyID int, latest int) error {
 	}
 	s.trials = trials
 
+	return nil
+}
+
+func (s *InMemoryStorage) Close() error {
 	return nil
 }
