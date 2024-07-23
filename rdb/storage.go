@@ -2,6 +2,7 @@ package rdb
 
 import (
 	"fmt"
+	"io"
 	"time"
 
 	"github.com/google/uuid"
@@ -840,6 +841,6 @@ func (s *Storage) DeletePrunedTrials(studyID int, latest int) error {
 		Where("trial_id != ", latest).Delete(&trialModel{}).Error
 }
 
-func (s *Storage) Close() error {
+func (s *Storage) Dump(w io.Writer) error {
 	return nil
 }

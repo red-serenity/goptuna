@@ -2,6 +2,7 @@ package goptuna
 
 import (
 	"errors"
+	"io"
 	"sync"
 	"time"
 )
@@ -595,6 +596,6 @@ func (s *BlackHoleStorage) DeletePrunedTrials(studyID int, latest int) error {
 
 }
 
-func (s *BlackHoleStorage) Close() error {
+func (s *BlackHoleStorage) Dump(w io.Writer) error {
 	return nil
 }

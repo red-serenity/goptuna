@@ -8,10 +8,8 @@ import (
 )
 
 // NewStorage returns new Persistent InMemory storage.
-func NewStorage(r io.Reader, w io.WriteSeeker) (*Storage, error) {
-	s := &Storage{
-		w: w,
-	}
+func NewStorage(r io.Reader) (*Storage, error) {
+	s := &Storage{}
 
 	// If reader is nil, we don't load anything
 	if r == nil {
@@ -60,8 +58,6 @@ type Storage struct {
 	SystemAttrs map[string]string
 	StudyName   string
 	StudyID     int
-
-	w io.WriteSeeker // When close the storage, we want to write the current state of the storage to the w
 }
 
 // Allow to store StudyName
@@ -70,7 +66,7 @@ func (s *Storage) CreateNewStudy(name string) (int, error) {
 	return s.InMemoryStorage.CreateNewStudy(name)
 }
 
-func (s *Storage) Close() error {
+func (s *Storage) Dump(w io.Writer) error {
 	var err error
 
 	if s.StudyID, err = s.GetStudyIDFromName(s.StudyName); err != nil {
@@ -106,6 +102,6 @@ func (s *Storage) Close() error {
 		s.SystemAttrs[k] = v
 	}
 
-	enc := json.NewEncoder(s.w)
+	enc := json.NewEncoder(w)
 	return enc.Encode(s)
 }

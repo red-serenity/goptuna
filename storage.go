@@ -2,6 +2,7 @@ package goptuna
 
 import (
 	"errors"
+	"io"
 	"sync"
 	"time"
 )
@@ -48,7 +49,7 @@ type Storage interface {
 	GetTrialSystemAttrs(trialID int) (map[string]string, error)
 	DeletePrunedTrials(studyID int, latest int) error
 
-	Close() error
+	Dump(w io.Writer) error
 }
 
 var _ Storage = &InMemoryStorage{}
@@ -623,6 +624,6 @@ func (s *InMemoryStorage) DeletePrunedTrials(studyID int, latest int) error {
 	return nil
 }
 
-func (s *InMemoryStorage) Close() error {
+func (s *InMemoryStorage) Dump(w io.Writer) error {
 	return nil
 }

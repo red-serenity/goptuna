@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"io"
 	"time"
 
 	"gorm.io/gorm/clause"
@@ -813,6 +814,6 @@ func (s *Storage) DeletePrunedTrials(studyID int, latest int) error {
 		Where("trial_id != ?", latest).Delete(&trialModel{}).Error
 }
 
-func (s *Storage) Close() error {
+func (s *Storage) Dump(w io.Writer) error {
 	return nil
 }
