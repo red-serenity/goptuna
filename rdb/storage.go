@@ -834,7 +834,12 @@ func (s *Storage) GetTrial(trialID int) (goptuna.FrozenTrial, error) {
 }
 
 // DeletePrunedTrials delete all pruned trials except latest row
-func (s *Storage) DeletePrunedTrials(studyID int, latest int) error {
+func (s *Storage) DeletePrunedTrials(studyName string, latest int) error {
+
+	studyID, err := s.GetStudyIDFromName(studyName)
+	if err != nil {
+		return err
+	}
 
 	return s.db.Where("study_id = ?", studyID).
 		Where("state = ?", trialStatePruned).

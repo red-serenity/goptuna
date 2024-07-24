@@ -62,8 +62,10 @@ type Storage struct {
 
 // Allow to store StudyName
 func (s *Storage) CreateNewStudy(name string) (int, error) {
+	var err error
 	s.StudyName = name
-	return s.InMemoryStorage.CreateNewStudy(name)
+	s.StudyID, err = s.InMemoryStorage.CreateNewStudy(name)
+	return s.StudyID, err
 }
 
 func (s *Storage) Dump(w io.Writer) error {
